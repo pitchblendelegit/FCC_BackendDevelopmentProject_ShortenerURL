@@ -32,7 +32,7 @@ app.post('/api/shorturl', function(req, res) {
     const myURL = new URL(url);
     const dnslookup = dns.lookup(myURL.hostname, async (err, address) => {
       if (!address) {
-        res.json({ error: "Invalid URL!" });
+        res.json({ error: "Invalid URL" });
       } else {
         const urlCount = await urls.countDocuments({});
         const urlDoc = {
@@ -45,7 +45,7 @@ app.post('/api/shorturl', function(req, res) {
       }
     });
   } catch (error) {
-    res.json({ error: "Invalid URL!" });
+    res.json({ error: "Invalid URL" });
   }
 });
 
